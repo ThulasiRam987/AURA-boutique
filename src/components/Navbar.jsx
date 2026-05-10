@@ -1,10 +1,18 @@
 import { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { ShoppingBag } from 'lucide-react';
 import { animate, stagger, splitText } from 'animejs';
 
 export default function Navbar({ cart, setIsCartOpen }) {
   const logoRef = useRef(null);
+  const location = useLocation();
+  const { pathname, hash } = location;
+
+  const getLinkClass = (path, linkHash = '') => {
+    const isContactActive = linkHash === '#contact' && hash === '#contact';
+    const isActive = (pathname === path && hash === linkHash) || isContactActive;
+    return `${isActive ? 'text-boutique-gold' : 'text-boutique-900'} font-sans text-sm tracking-widest uppercase hover:text-boutique-gold transition-colors font-medium`;
+  };
 
   useEffect(() => {
     if (logoRef.current) {
@@ -32,10 +40,10 @@ export default function Navbar({ cart, setIsCartOpen }) {
     <header className="sticky top-0 z-40 glass px-4 md:px-8 py-4 flex justify-between items-center border-b border-boutique-gold/30">
       {/* Desktop Navigation */}
       <nav className="hidden md:flex space-x-8 flex-1">
-        <Link to="/" className="text-boutique-900 font-sans text-sm tracking-widest uppercase hover:text-boutique-gold transition-colors font-medium">Home</Link>
-        <Link to="/#products" className="text-boutique-900 font-sans text-sm tracking-widest uppercase hover:text-boutique-gold transition-colors font-medium">Products</Link>
-        <Link to="/#contact" className="text-boutique-900 font-sans text-sm tracking-widest uppercase hover:text-boutique-gold transition-colors font-medium">About Us</Link>
-        <Link to="/#contact" className="text-boutique-900 font-sans text-sm tracking-widest uppercase hover:text-boutique-gold transition-colors font-medium">Contact</Link>
+        <Link to="/" className={getLinkClass('/', '')}>Home</Link>
+        <Link to="/#products" className={getLinkClass('/', '#products')}>Products</Link>
+        <Link to="/about" className={getLinkClass('/about', '')}>About Us</Link>
+        <Link to="/#contact" className={getLinkClass('/', '#contact')}>Contact</Link>
       </nav>
 
       {/* Logo */}

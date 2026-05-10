@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import ProductDetailPage from './pages/ProductDetailPage';
+import AboutPage from './pages/AboutPage';
 import CartSidebar from './components/CartSidebar';
 import Navbar from './components/Navbar';
 
@@ -73,6 +74,7 @@ function App() {
       {/* Page Routing */}
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
         <Route path="/product/:id" element={<ProductDetailPage addToCart={addToCart} />} />
       </Routes>
 
@@ -103,7 +105,7 @@ function App() {
               <h4 className="font-sans text-sm tracking-widest uppercase font-semibold mb-6 text-white">Explore</h4>
               <ul className="space-y-4 text-sm font-light text-boutique-50/70">
                 <li><Link to="/#products" className="hover:text-boutique-gold transition-colors">Shop Collection</Link></li>
-                <li><Link to="/#contact" className="hover:text-boutique-gold transition-colors">Our Story</Link></li>
+                <li><Link to="/about" className="hover:text-boutique-gold transition-colors">Our Story</Link></li>
                 <li><Link to="#" className="hover:text-boutique-gold transition-colors">Journal</Link></li>
               </ul>
             </div>

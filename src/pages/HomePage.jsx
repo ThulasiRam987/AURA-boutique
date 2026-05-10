@@ -89,7 +89,7 @@ export default function HomePage() {
             <h2 className="text-3xl font-heading font-bold tracking-wide text-boutique-text">{activeCategory === "All" ? "Shop All" : activeCategory}</h2>
             <span className="text-sm font-sans font-semibold text-boutique-800">{filteredProducts.length} Items</span>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-16 md:gap-x-8 md:gap-y-24">
             {filteredProducts.map(product => (
               <ProductCard key={product.id} product={product} />
             ))}
@@ -100,7 +100,7 @@ export default function HomePage() {
         {activeCategory === "All" && newArrivals.length > 0 && (
           <div className="mb-24 pt-16 border-t border-boutique-gold/30">
             <h2 className="text-3xl font-heading font-bold tracking-wide text-boutique-text mb-8">New Arrivals</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-16 md:gap-x-8 md:gap-y-24">
               {newArrivals.map(product => (
                 <ProductCard key={product.id} product={product} />
               ))}
@@ -112,7 +112,7 @@ export default function HomePage() {
         {activeCategory === "All" && bestSellers.length > 0 && (
           <div className="mb-16 pt-16 border-t border-boutique-gold/30">
             <h2 className="text-3xl font-heading font-bold tracking-wide text-boutique-text mb-8">Best Sellers</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-16 md:gap-x-8 md:gap-y-24">
               {bestSellers.map(product => (
                 <ProductCard key={product.id} product={product} />
               ))}
