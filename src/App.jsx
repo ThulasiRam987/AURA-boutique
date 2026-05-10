@@ -3,7 +3,7 @@ import { Routes, Route, Link } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import ProductDetailPage from './pages/ProductDetailPage';
 import CartSidebar from './components/CartSidebar';
-import { ShoppingBag } from 'lucide-react';
+import Navbar from './components/Navbar';
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -54,20 +54,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-boutique-50 font-sans pb-24 lg:pb-0">
-      <header className="sticky top-0 z-40 glass px-4 md:px-8 py-4 flex justify-between items-center border-b border-boutique-gold/30">
-        <div className="w-8"></div>
-        <Link to="/" className="font-heading text-3xl tracking-[0.2em] uppercase font-bold text-boutique-900 drop-shadow-sm">
-          Aura
-        </Link>
-        <button className="relative p-2" onClick={() => setIsCartOpen(true)}>
-          <ShoppingBag className="w-5 h-5 text-boutique-900" />
-          {cart.length > 0 && (
-            <span className="absolute top-1 right-1 w-4 h-4 bg-red-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center">
-              {cart.length}
-            </span>
-          )}
-        </button>
-      </header>
+      <Navbar cart={cart} setIsCartOpen={setIsCartOpen} />
 
       {/* Page Routing */}
       <Routes>
@@ -84,10 +71,62 @@ function App() {
         clearCart={clearCart}
       />
       
-      {/* Persistent Footer */}
-      <footer className="bg-boutique-900 text-boutique-50 py-12 text-center mt-12">
-        <Link to="/" className="inline-block font-heading text-3xl tracking-widest uppercase mb-6">Aura</Link>
-        <p className="text-sm text-boutique-50/60">&copy; 2026 Aura Boutique. All rights reserved.</p>
+      {/* Premium Persistent Footer */}
+      <footer className="bg-boutique-900 text-boutique-50 pt-16 pb-8 mt-12 border-t border-boutique-gold/20" id="contact">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+            
+            {/* Brand */}
+            <div className="col-span-1 md:col-span-1">
+              <Link to="/" className="inline-block font-heading text-3xl tracking-widest uppercase mb-6 text-boutique-gold">Aura</Link>
+              <p className="text-sm text-boutique-50/70 font-light leading-relaxed max-w-xs">
+                Redefining modern luxury with ethically crafted, timeless silhouettes for the sophisticated woman.
+              </p>
+            </div>
+
+            {/* Links */}
+            <div>
+              <h4 className="font-sans text-sm tracking-widest uppercase font-semibold mb-6 text-white">Explore</h4>
+              <ul className="space-y-4 text-sm font-light text-boutique-50/70">
+                <li><Link to="/#products" className="hover:text-boutique-gold transition-colors">Shop Collection</Link></li>
+                <li><Link to="/#about" className="hover:text-boutique-gold transition-colors">Our Story</Link></li>
+                <li><Link to="#" className="hover:text-boutique-gold transition-colors">Journal</Link></li>
+              </ul>
+            </div>
+
+            {/* Customer Care */}
+            <div>
+              <h4 className="font-sans text-sm tracking-widest uppercase font-semibold mb-6 text-white">Support</h4>
+              <ul className="space-y-4 text-sm font-light text-boutique-50/70">
+                <li><Link to="#" className="hover:text-boutique-gold transition-colors">FAQ</Link></li>
+                <li><Link to="#" className="hover:text-boutique-gold transition-colors">Shipping & Returns</Link></li>
+                <li><Link to="#" className="hover:text-boutique-gold transition-colors">Size Guide</Link></li>
+              </ul>
+            </div>
+
+            {/* Contact & Social */}
+            <div>
+              <h4 className="font-sans text-sm tracking-widest uppercase font-semibold mb-6 text-white">Connect</h4>
+              <ul className="space-y-4 text-sm font-light text-boutique-50/70">
+                <li><a href="mailto:hello@auraboutique.com" className="hover:text-boutique-gold transition-colors">hello@auraboutique.com</a></li>
+                <li><a href="tel:+1234567890" className="hover:text-boutique-gold transition-colors">+1 (555) 123-4567</a></li>
+                <li className="pt-2 flex space-x-4">
+                  <a href="#" className="hover:text-boutique-gold transition-colors uppercase tracking-wider text-xs font-medium">Instagram</a>
+                  <a href="#" className="hover:text-boutique-gold transition-colors uppercase tracking-wider text-xs font-medium">Pinterest</a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+          
+          <div className="pt-8 border-t border-boutique-50/10 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-xs text-boutique-50/50">&copy; 2026 Aura Boutique. All rights reserved.</p>
+            <div className="flex space-x-6 text-xs text-boutique-50/50">
+              <Link to="#" className="hover:text-white transition-colors">Privacy Policy</Link>
+              <Link to="#" className="hover:text-white transition-colors">Terms of Service</Link>
+            </div>
+          </div>
+        </div>
       </footer>
     </div>
   );

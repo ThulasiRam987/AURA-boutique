@@ -15,31 +15,70 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-boutique-50">
-      {/* Seasonal Banner */}
-      <div className="bg-boutique-100 text-boutique-text py-16 px-4 md:px-8 text-center relative overflow-hidden flex items-center justify-center min-h-[40vh]">
-        <div className="relative z-10 max-w-2xl mx-auto">
-          <motion.p 
-            initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
-            className="text-sm font-sans tracking-[0.2em] uppercase mb-4 text-boutique-800 font-semibold"
-          >
-            The Festive Edit
-          </motion.p>
-          <motion.h1 
-            initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl md:text-6xl font-heading mb-6 tracking-wide text-boutique-900 font-bold"
-          >
-            Curated Elegance for Your Special Moments
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-boutique-900/80 font-sans font-medium max-w-lg mx-auto"
-          >
-            Discover our new arrivals featuring handwoven silks, intricate embroidery, and modern silhouettes.
-          </motion.p>
+      {/* Premium Hero Section */}
+      <div className="relative bg-boutique-50 overflow-hidden min-h-[85vh] flex items-center border-b border-boutique-gold/10">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 w-full py-12 md:py-0">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-12 lg:gap-24">
+            
+            {/* Text Content */}
+            <div className="w-full md:w-1/2 pt-8 md:pt-0 z-10">
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}
+                className="text-boutique-gold text-sm md:text-base font-sans tracking-[0.3em] uppercase mb-6 font-semibold"
+              >
+                The Aura Collection
+              </motion.p>
+              <motion.h1 
+                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                className="text-5xl md:text-7xl lg:text-8xl font-heading mb-8 text-boutique-900 leading-[1.1]"
+              >
+                Soft <br/><span className="italic text-boutique-400 font-light">Luxury</span>
+              </motion.h1>
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+                className="text-boutique-900/70 font-sans text-lg md:text-xl max-w-md mb-10 leading-relaxed font-light"
+              >
+                Discover our meticulously curated collection of timeless elegance. Crafted for the modern woman who embraces quiet sophistication.
+              </motion.p>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+              >
+                <a href="#products" className="inline-block bg-boutique-900 text-boutique-50 font-sans tracking-widest uppercase text-sm px-10 py-4 rounded-radius-3xl hover:bg-boutique-gold hover:text-white transition-all duration-300 shadow-xl hover:shadow-boutique-gold/20">
+                  Shop The Collection
+                </a>
+              </motion.div>
+            </div>
+
+            {/* Hero Image */}
+            <div className="w-full md:w-1/2 relative pb-8 md:pb-0 mt-8 md:mt-0">
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
+                className="relative rounded-radius-3xl overflow-hidden shadow-2xl shadow-boutique-800/10 aspect-[4/5] md:aspect-[3/4]"
+              >
+                <div className="absolute inset-0 bg-boutique-900/10 mix-blend-overlay z-10 transition-opacity hover:opacity-0 duration-700"></div>
+                <img 
+                  src="/boutique-hero.png" 
+                  alt="High fashion editorial woman in elegant dress" 
+                  className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-1000 ease-in-out"
+                />
+              </motion.div>
+              
+              {/* Decorative elements */}
+              <motion.div 
+                initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: 1 }}
+                className="absolute -bottom-6 -left-6 md:-bottom-12 md:-left-12 w-32 h-32 md:w-48 md:h-48 bg-boutique-200 rounded-full -z-10 blur-3xl opacity-60"
+              />
+              <motion.div 
+                initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: 1.2 }}
+                className="absolute -top-6 -right-6 md:-top-12 md:-right-12 w-40 h-40 md:w-64 md:h-64 bg-boutique-100 rounded-full -z-10 blur-3xl opacity-50"
+              />
+            </div>
+
+          </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-12">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-24" id="products">
         
         {/* Categories Gallery */}
         <CategoryGallery activeCategory={activeCategory} setActiveCategory={setActiveCategory} />
