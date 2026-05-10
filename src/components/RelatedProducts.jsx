@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export default function RelatedProducts({ products }) {
+  const navigate = useNavigate();
   return (
     <div className="py-20 bg-white px-4 md:px-8 border-t border-boutique-100">
       <div className="max-w-7xl mx-auto">
@@ -20,17 +22,18 @@ export default function RelatedProducts({ products }) {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               key={item.id} 
+              onClick={() => navigate(`/product/${item.id}`)}
               className="flex-shrink-0 w-64 md:w-auto group cursor-pointer"
             >
               <div className="rounded-lg overflow-hidden mb-6 bg-boutique-50 aspect-[3/4]">
                 <img 
-                  src={item.image} 
+                  src={item.images && item.images.length > 0 ? item.images[0] : ''} 
                   alt={item.name} 
                   className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
                 />
               </div>
-              <h3 className="text-lg font-heading tracking-wide text-boutique-text mb-2">{item.name}</h3>
-              <p className="text-boutique-400 font-sans font-light">₹{item.price.toLocaleString('en-IN')}</p>
+              <h3 className="text-lg font-heading tracking-wide text-boutique-text mb-2 font-semibold">{item.name}</h3>
+              <p className="text-boutique-800 font-sans font-medium">₹{item.price.toLocaleString('en-IN')}</p>
             </motion.div>
           ))}
         </div>
