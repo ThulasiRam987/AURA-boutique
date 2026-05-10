@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import ProductDetailPage from './pages/ProductDetailPage';
 import CartSidebar from './components/CartSidebar';
@@ -8,6 +8,20 @@ import Navbar from './components/Navbar';
 function App() {
   const [cart, setCart] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      setTimeout(() => {
+        const element = document.getElementById(location.hash.slice(1));
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 50);
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [location]);
 
   const addToCart = (product, selectedSize, selectedColor) => {
     setCart((prevCart) => {
@@ -89,7 +103,7 @@ function App() {
               <h4 className="font-sans text-sm tracking-widest uppercase font-semibold mb-6 text-white">Explore</h4>
               <ul className="space-y-4 text-sm font-light text-boutique-50/70">
                 <li><Link to="/#products" className="hover:text-boutique-gold transition-colors">Shop Collection</Link></li>
-                <li><Link to="/#about" className="hover:text-boutique-gold transition-colors">Our Story</Link></li>
+                <li><Link to="/#contact" className="hover:text-boutique-gold transition-colors">Our Story</Link></li>
                 <li><Link to="#" className="hover:text-boutique-gold transition-colors">Journal</Link></li>
               </ul>
             </div>

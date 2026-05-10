@@ -34,7 +34,7 @@ export default function Navbar({ cart, setIsCartOpen }) {
       <nav className="hidden md:flex space-x-8 flex-1">
         <Link to="/" className="text-boutique-900 font-sans text-sm tracking-widest uppercase hover:text-boutique-gold transition-colors font-medium">Home</Link>
         <Link to="/#products" className="text-boutique-900 font-sans text-sm tracking-widest uppercase hover:text-boutique-gold transition-colors font-medium">Products</Link>
-        <Link to="/#about" className="text-boutique-900 font-sans text-sm tracking-widest uppercase hover:text-boutique-gold transition-colors font-medium">About Us</Link>
+        <Link to="/#contact" className="text-boutique-900 font-sans text-sm tracking-widest uppercase hover:text-boutique-gold transition-colors font-medium">About Us</Link>
         <Link to="/#contact" className="text-boutique-900 font-sans text-sm tracking-widest uppercase hover:text-boutique-gold transition-colors font-medium">Contact</Link>
       </nav>
 
