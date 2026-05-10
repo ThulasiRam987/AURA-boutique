@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', sans-serif;
+  --font-heading: 'Cormorant Garamond', serif;
+  
+  --color-boutique-50: #F8F4EE;
+  --color-boutique-100: #EFE3D3;
+  --color-boutique-200: #E8D5C4;
+  --color-boutique-300: #C29F8D; /* Deepened Dusty Rose */
+  --color-boutique-400: #8C7B6E; /* Deepened Warm Taupe for better text visibility */
+  --color-boutique-gold: #B69248; /* More vibrant/darker Gold */
+  --color-boutique-800: #3A2F28; /* Dark brown */
+  --color-boutique-900: #1C1816; /* Deepened text color */
+  --color-boutique-text: #1C1816; /* Deepened text color */
+  
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-boutique-50 text-boutique-900 antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .glass {
+    @apply bg-white/80 backdrop-blur-md border-t border-white/20;
+  }
+}
+
