@@ -70,7 +70,7 @@ export default function ProductDetailPage({ addToCart }) {
         <CustomerReviews reviews={reviews} />
       </main>
 
-      <StickyBottomBar onAddToCart={handleAddToCart} />
+      <StickyBottomBar onAddToCart={handleAddToCart} product={product} selectedSize={selectedSize} selectedColor={selectedColor} />
     </>
   );
 }
