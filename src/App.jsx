@@ -106,7 +106,7 @@ function App() {
               <ul className="space-y-4 text-sm font-light text-boutique-50/70">
                 <li><Link to="/#products" className="hover:text-boutique-gold transition-colors">Shop Collection</Link></li>
                 <li><Link to="/about" className="hover:text-boutique-gold transition-colors">Our Story</Link></li>
-                <li><Link to="#" className="hover:text-boutique-gold transition-colors">Journal</Link></li>
+                <li><Link to="/#contact" className="hover:text-boutique-gold transition-colors">Contact Us</Link></li>
               </ul>
             </div>
 
@@ -114,9 +114,9 @@ function App() {
             <div>
               <h4 className="font-sans text-sm tracking-widest uppercase font-semibold mb-6 text-white">Support</h4>
               <ul className="space-y-4 text-sm font-light text-boutique-50/70">
-                <li><Link to="#" className="hover:text-boutique-gold transition-colors">FAQ</Link></li>
-                <li><Link to="#" className="hover:text-boutique-gold transition-colors">Shipping & Returns</Link></li>
-                <li><Link to="#" className="hover:text-boutique-gold transition-colors">Size Guide</Link></li>
+                <li><a href="mailto:hello@auraboutique.com" className="hover:text-boutique-gold transition-colors">FAQ — Email Us</a></li>
+                <li><a href="mailto:hello@auraboutique.com" className="hover:text-boutique-gold transition-colors">Shipping & Returns</a></li>
+                <li><Link to="/#products" className="hover:text-boutique-gold transition-colors">Size Guide</Link></li>
               </ul>
             </div>
 
@@ -125,10 +125,10 @@ function App() {
               <h4 className="font-sans text-sm tracking-widest uppercase font-semibold mb-6 text-white">Connect</h4>
               <ul className="space-y-4 text-sm font-light text-boutique-50/70">
                 <li><a href="mailto:hello@auraboutique.com" className="hover:text-boutique-gold transition-colors">hello@auraboutique.com</a></li>
-                <li><a href="tel:+1234567890" className="hover:text-boutique-gold transition-colors">+1 (555) 123-4567</a></li>
+                <li><a href="tel:+919876543210" className="hover:text-boutique-gold transition-colors">+91 98765 43210</a></li>
                 <li className="pt-2 flex space-x-4">
-                  <a href="#" className="hover:text-boutique-gold transition-colors uppercase tracking-wider text-xs font-medium">Instagram</a>
-                  <a href="#" className="hover:text-boutique-gold transition-colors uppercase tracking-wider text-xs font-medium">Pinterest</a>
+                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-boutique-gold transition-colors uppercase tracking-wider text-xs font-medium">Instagram</a>
+                  <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" className="hover:text-boutique-gold transition-colors uppercase tracking-wider text-xs font-medium">Pinterest</a>
                 </li>
               </ul>
             </div>
@@ -138,8 +138,8 @@ function App() {
           <div className="pt-8 border-t border-boutique-50/10 flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-xs text-boutique-50/50">&copy; 2026 Aura Boutique. All rights reserved.</p>
             <div className="flex space-x-6 text-xs text-boutique-50/50">
-              <Link to="#" className="hover:text-white transition-colors">Privacy Policy</Link>
-              <Link to="#" className="hover:text-white transition-colors">Terms of Service</Link>
+              <a href="mailto:hello@auraboutique.com" className="hover:text-white transition-colors">Privacy Policy</a>
+              <a href="mailto:hello@auraboutique.com" className="hover:text-white transition-colors">Terms of Service</a>
             </div>
           </div>
         </div>

@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import { collections } from "./CuratedCollections";
 
-const MobileLuxuryCards = () => {
+const MobileLuxuryCards = ({ setActiveCategory }) => {
   const [stack, setStack] = useState(collections);
+  const navigate = useNavigate();
 
   const handleDragEnd = (_, info) => {
     if (Math.abs(info.offset.x) > 100) {
@@ -12,6 +14,11 @@ const MobileLuxuryCards = () => {
       updated.push(first);
       setStack(updated);
     }
+  };
+
+  const handleCardTap = (card) => {
+    if (setActiveCategory) setActiveCategory(card.category);
+    navigate('/#products');
   };
 
   return (
@@ -43,28 +50,14 @@ const MobileLuxuryCards = () => {
                   zIndex: stack.length - index,
                   cursor: isTop ? "grab" : "default",
                 }}
-                initial={{
-                  scale: 0.92,
-                  y: 30,
-                  opacity: 0,
-                }}
-                animate={{
-                  scale: 1 - index * 0.04,
-                  y: index * 12,
-                  opacity: 1,
-                }}
-                transition={{
-                  type: "spring",
-                  stiffness: 260,
-                  damping: 24,
-                }}
+                initial={{ scale: 0.92, y: 30, opacity: 0 }}
+                animate={{ scale: 1 - index * 0.04, y: index * 12, opacity: 1 }}
+                transition={{ type: "spring", stiffness: 260, damping: 24 }}
                 drag={isTop ? "x" : false}
                 dragConstraints={{ left: 0, right: 0 }}
                 onDragEnd={handleDragEnd}
-                whileDrag={{
-                  scale: 1.03,
-                  rotate: 2,
-                }}
+                whileDrag={{ scale: 1.03, rotate: 2 }}
+                onClick={() => isTop && handleCardTap(card)}
               >
                 {/* Background Image */}
                 <img

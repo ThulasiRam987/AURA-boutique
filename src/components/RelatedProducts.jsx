@@ -9,7 +9,10 @@ export default function RelatedProducts({ products }) {
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-end mb-12">
           <h2 className="text-4xl font-heading tracking-wide text-boutique-text">Complete the Look</h2>
-          <button className="hidden md:flex items-center gap-2 text-sm font-sans tracking-widest uppercase font-medium text-boutique-gold hover:text-boutique-text transition-colors">
+          <button
+            onClick={() => navigate('/#products')}
+            className="hidden md:flex items-center gap-2 text-sm font-sans tracking-widest uppercase font-medium text-boutique-gold hover:text-boutique-text transition-colors"
+          >
             View All <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
           </button>
         </div>

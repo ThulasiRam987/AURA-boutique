@@ -132,7 +132,7 @@ export default function HomePage() {
         {activeCategory === "All" && (
           <>
             <CuratedCollections setActiveCategory={setActiveCategory} />
-            <MobileLuxuryCards />
+            <MobileLuxuryCards setActiveCategory={setActiveCategory} />
           </>
         )}
 

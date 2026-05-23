@@ -99,6 +99,7 @@ const CollectionCard = ({ title, subtitle, image, height, featured, category, on
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 10 }}
               transition={{ duration: 0.22 }}
+              onClick={(e) => { e.stopPropagation(); onExplore(category); }}
               className="flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/30 text-white text-xs font-sans tracking-widest uppercase px-5 py-2.5 rounded-full hover:bg-boutique-gold hover:border-boutique-gold transition-colors duration-300"
             >
               Explore {title}
